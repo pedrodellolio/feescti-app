@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FEESCTI_ASPNET.Models.Inscricao>
+
+@{
+  ViewData["Title"] = "Lista de inscritos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+@if (Model.Count() > 0)
+{
+  <table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+      <tr>
+        <th>
+          Id
+        </th>
+        <th>
+          Nome
+        </th>
+        <th>
+          CPF
+        </th>
+        <th>
+          Data de nascimento
+        </th>
+        <th>
+          Status
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var inscricao in Model)
+      {
+        <tr>
+          <td width="10%"><a asp-controller="Admin" asp-route-Id="@inscricao.Id" asp-action="Analise">@inscricao.Id</a></td>
+          <td width="40%">@inscricao.Nome</td>
+          <td width="30%">@inscricao.CPF</td>
+          <td width="30%">@inscricao.DataNascimento</td>
+          <td width="50%">@inscricao.Status</td>
+
+        </tr>
+      }
+
+    </tbody>
+  </table>
+}
+else
+{
+  <p>Não existem inscrições ainda.</p>
+}

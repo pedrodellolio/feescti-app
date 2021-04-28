@@ -1,0 +1,28 @@
+﻿@model FEESCTI_ASPNET.Models.Account
+
+@{
+  ViewData["Title"] = "Login";
+}
+
+
+<div>
+  @if (ViewBag.error != null)
+  {
+    <div class="alert alert-danger">
+      @ViewBag.error
+    </div>
+  }
+</div>
+<form asp-action="Verify" method="post">
+  <label asp-for="Username"></label>
+  <input type="text" asp-for="Username" class="form-control" placeholder="Nome de usuário" />
+  @Html.ValidationMessageFor(model => model.Username, "", new { @style = "color: red;" })<br />
+
+  <label asp-for="Password"></label>
+  <input type="password" asp-for="Password" class="form-control" placeholder="Senha" />
+  @Html.ValidationMessageFor(model => model.Password, "", new { @style = "color: red;" })
+
+  <br />
+  <input type="submit" value="Entrar" class="btn btn-primary" />
+
+</form>

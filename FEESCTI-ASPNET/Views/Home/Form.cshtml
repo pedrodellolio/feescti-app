@@ -1,0 +1,29 @@
+﻿@model FEESCTI_ASPNET.Models.Inscricao
+
+@{
+  ViewData["Title"] = "Inscrição para a palestra";
+}
+
+<h1>@ViewData["Title"]</h1>
+<form method="post" asp-controller="Home" asp-action="Form">
+  <div class="form-group">
+    <label asp-for="Nome"></label>
+    <input asp-for="Nome" class="form-control" placeholder="Informe o nome" />
+    @Html.ValidationMessageFor(model => model.Nome, "", new { @style = "color: red;" })
+  </div>
+  <div class="form-group">
+    <label asp-for="CPF"></label>
+    <input asp-for="CPF" class="form-control" placeholder="Informe o CPF" />
+    @Html.ValidationMessageFor(model => model.CPF, "", new { @style = "color: red;" })
+
+  </div>
+  <div class="form-group">
+    <label asp-for="DataNascimento"></label>
+    <input type="date" asp-for="DataNascimento" class="form-control" placeholder="Informe a data de nascimento" />
+    @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @style = "color: red;" })
+
+  </div>
+
+  <input type="submit" value="Enviar" class="btn btn-primary" />
+
+</form>

@@ -1,0 +1,56 @@
+﻿@model FEESCTI_ASPNET.Models.Inscricao
+
+@{
+  ViewData["Title"] = "Análise de inscrição";
+}
+
+<form asp-action="Analise" method="post">
+  <div class="form-container">
+    <label asp-for="Id">Id</label>
+    <input class="form-control" asp-for="Id" type="text" value="@Model.Id" readonly /><br />
+
+    <label asp-for="Nome">Nome</label>
+    <input class="form-control" asp-for="Nome" type="text" value="@Model.Nome" readonly /><br />
+
+    <label asp-for="CPF">CPF</label>
+    <input class="form-control" asp-for="CPF" type="text" value="@Model.CPF" readonly /><br />
+
+    <label asp-for="DataNascimento">Nome</label>
+    <input class="form-control" asp-for="DataNascimento" type="text" value="@Model.DataNascimento" readonly /><br />
+
+    <label asp-for="Status">Aceitar</label>
+    <input id="radio1" asp-for="Status" type="radio" value="Aceita" />
+
+    <label asp-for="Status">Negar</label>
+    <input id="radio2" asp-for="Status" type="radio" value="Não aceita" /><br />
+  </div>
+
+  <div class="motivoForm" style="display:none">
+    <textarea class="form-control" asp-for="MotivoStatusNegado"></textarea>
+  </div>
+
+  <div class="button">
+    <input type="submit" value="Gravar" />
+
+  </div>
+
+
+</form>
+
+@section scripts {
+  <script type="text/javascript">
+    var form = $(".motivoForm");
+
+    $("#radio2").click(function () {
+
+      if (form.css("display") == "none") {
+        form.css("display", "block");
+      } else {
+        form.css("display", "none");
+
+      }
+    });
+
+
+  </script>
+}

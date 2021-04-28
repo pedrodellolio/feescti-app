@@ -1,0 +1,14 @@
+﻿@{
+  ViewData["Title"] = "Buscar por uma inscrição";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="SearchResult">
+  <div class="form-group">
+    <label for="searchId" class="control-label"></label>
+    <input name="searchId" class="form-control" />
+  </div>
+  <input type="submit" value="Buscar" class="btn btn-primary" />
+
+</form>
