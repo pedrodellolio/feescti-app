@@ -9,7 +9,7 @@ CREATE TABLE [Inscricao] (
 	[CPF] varchar(50) not null,
 	[DataNascimento] date not null,
 	[Status] varchar(50) not null,
-	[MotivoStatusNegado] varchar(200) not null,
+	[MotivoStatusNegado] varchar(200),
 	primary key(Id)
 )
 
